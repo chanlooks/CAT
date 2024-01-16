@@ -1,0 +1,75 @@
+----------------- Options ---------------
+                active_fn: nn.ReLU                       
+              active_fn_D: nn.LeakyReLU                  
+             aspect_ratio: 1.0                           
+               batch_size: 1                             
+                    beta1: 0.5                           
+                 channels: None                          
+channels_reduction_factor: 6                             	[default: 1]
+          cityscapes_path: database/cityscapes-origin    
+                crop_size: 256                           
+                 dataroot: database/horse2zebra          	[default: None]
+             dataset_mode: unaligned                     
+                direction: AtoB                          
+          display_winsize: 256                           
+                 drn_path: drn-d-105_ms_cityscapes.pth   
+             dropout_rate: 0                             
+               epoch_base: 1                             
+          eval_batch_size: 1                             
+                 gan_mode: lsgan                         
+                  gpu_ids: 1                             	[default: 0]
+                init_gain: 0.02                          
+                init_type: normal                        
+                 input_nc: 3                             
+                  isTrain: True                          	[default: None]
+                iter_base: 1                             
+             kernel_sizes: [1, 3, 5]                     	[default: [3, 5, 7]]
+                 lambda_A: 10.0                          
+                 lambda_B: 10.0                          
+          lambda_identity: 0.5                           
+           load_in_memory: False                         
+                load_size: 286                           
+                  log_dir: logs/cycle_gan/horse2zebra/inception/teacher	[default: logs]
+                       lr: 0.0002                        
+           lr_decay_iters: 50                            
+                lr_policy: linear                        
+         max_dataset_size: -1                            
+                    model: cycle_gan                     	[default: pix2pix]
+     moving_average_decay: 0.0                           
+moving_average_decay_adjust: False                         
+moving_average_decay_base_batch: 32                            
+               n_layers_D: 3                             
+                      ndf: 64                            
+                  nepochs: 150                           	[default: 100]
+            nepochs_decay: 150                           	[default: 100]
+                     netD: n_layers                      
+                     netG: inception_9blocks             
+                      ngf: 64                            
+                  no_flip: False                         
+                     norm: instance                      
+              norm_affine: True                          	[default: False]
+            norm_affine_D: True                          	[default: False]
+             norm_epsilon: 1e-05                         
+            norm_momentum: 0.1                           
+ norm_track_running_stats: False                         
+              num_threads: 32                            	[default: 4]
+                output_nc: 3                             
+                    phase: train                         
+                pool_size: 50                            
+               preprocess: resize_and_crop               
+               print_freq: 100                           
+         real_stat_A_path: real_stat/horse2zebra_A.npz   	[default: None]
+         real_stat_B_path: real_stat/horse2zebra_B.npz   	[default: None]
+         restore_D_A_path: None                          
+         restore_D_B_path: None                          
+         restore_G_A_path: None                          
+         restore_G_B_path: None                          
+           restore_O_path: None                          
+          save_epoch_freq: 20                            
+         save_latest_freq: 20000                         
+                     seed: 233                           
+           serial_batches: False                         
+               table_path: datasets/table.txt            
+          tensorboard_dir: None                          
+----------------- End -------------------
+train.py --dataroot database/horse2zebra --model cycle_gan --log_dir logs/cycle_gan/horse2zebra/inception/teacher --netG inception_9blocks --real_stat_A_path real_stat/horse2zebra_A.npz --real_stat_B_path real_stat/horse2zebra_B.npz --batch_size 1 --nepochs 150 --nepochs_decay 150 --num_threads 32 --gpu_ids 1 --norm_affine --norm_affine_D --channels_reduction_factor 6 --kernel_sizes 1 3 5
