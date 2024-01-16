@@ -472,3 +472,4 @@ learning rate = 0.0002000
 (epoch: 29, iters: 37600, time: 0.503) D_A: 0.073 G_A: 0.471 G_cycle_A: 0.987 G_idt_A: 0.596 D_B: 0.103 G_B: 0.570 G_cycle_B: 1.595 G_idt_B: 0.444 
 (epoch: 29, iters: 37700, time: 0.507) D_A: 0.045 G_A: 0.470 G_cycle_A: 1.434 G_idt_A: 0.471 D_B: 0.296 G_B: 0.374 G_cycle_B: 1.394 G_idt_B: 0.458 
 (epoch: 29, iters: 37800, time: 0.489) D_A: 0.185 G_A: 0.636 G_cycle_A: 0.918 G_idt_A: 0.561 D_B: 0.275 G_B: 0.440 G_cycle_B: 0.988 G_idt_B: 0.535 
+(epoch: 29, iters: 37900, time: 0.490) D_A: 0.053 G_A: 0.701 G_cycle_A: 1.036 G_idt_A: 0.436 D_B: 0.215 G_B: 0.472 G_cycle_B: 1.041 G_idt_B: 0.448 
