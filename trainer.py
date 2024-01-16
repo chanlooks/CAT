@@ -103,6 +103,7 @@ class Trainer:
         logger = self.logger
 
         if self.task == 'distill':
+            #知识蒸馏
             shrink(model, opt)
             modules_on_one_gpu.netG_student = init_net(
                 modules_on_one_gpu.netG_student, opt.init_type, opt.init_gain,

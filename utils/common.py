@@ -342,6 +342,7 @@ def shrink_model(model, target_flops, opt):
     ).abs().max()
     print(f'scale range: [{scale_lb}, {scale_ub}]')
     searched_flops = float('inf')
+    #算法1
     while (abs(scale_ub - scale_lb) > 1e-3 * scale_lb) or (searched_flops >
                                                            target_flops):
         netG_to_prune = copy.deepcopy(netG_tmp)
@@ -432,6 +433,7 @@ def shrink_model(model, target_flops, opt):
                         num_forwards=0,
                         verbose=opt.prune_logging_verbose)
         searched_flops = mc.unwrap_model(netG_to_prune).n_macs
+        #算法1第七行
         if searched_flops > target_flops:
             scale_lb = scale_threshold
         else:
@@ -442,7 +444,7 @@ def shrink_model(model, target_flops, opt):
     print(
         f'scale threshold: {scale_threshold}, searched flops: {searched_flops}, target flops: {target_flops}, flops diff: {searched_flops - target_flops}.'
     )
-
+    #算法1结束
     netG_to_prune = copy.deepcopy(netG_tmp)
     in_channels = None
     in_mask = None
